@@ -19,8 +19,8 @@ module.exports = {
       return newProject;
     },
     updateProject: (id, updatedFields) => {
-        const fields = JSON.parse(updatedFields);
       const project = projects.find((p) => p.id === parseInt(id));
+      console.log(project, updatedFields, typeof updatedFields);
       if (project) {
         Object.keys(updatedFields).forEach((key) => {
           if (project[key] !== undefined) {
