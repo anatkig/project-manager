@@ -4,21 +4,15 @@ let projects = [
 ];
 
 const getAllProjects = (req, res) => {
-    if(res) {
     try {
-        if (!projects) {
-            return res.status(500).json({ message: "Projects data not available" });
-        }
-        res?.json(projects);
+        res.json(projects);
     } catch (error) {
         console.error("Error fetching projects:", error);
         res.status(500).json({ message: "Server error" });
     }
-}
 };
 
 const getProjectById = (req, res) => {
-    if(res){
     try {
         const { id } = req.params;
         const project = projects.find((p) => p.id === parseInt(id));
@@ -27,16 +21,14 @@ const getProjectById = (req, res) => {
             return res.status(404).json({ message: "Project not found" });
         }
 
-        res?.json(project);
+        res.json(project);
     } catch (error) {
         console.error("Error fetching project:", error);
         res.status(500).json({ message: "Server error" });
     }
-}
 };
 
 const createProject = (req, res) => {
-    if(res){
     try {
         const { name, description, startDate, endDate, manager } = req.body;
 
@@ -59,11 +51,9 @@ const createProject = (req, res) => {
         console.error("Error creating project:", error);
         res.status(500).json({ message: "Server error" });
     }
-}
 };
 
 const updateProject = (req, res) => {
-    if(res){
     try {
         const { id } = req.params;
         const { name, description, startDate, endDate, manager } = req.body;
@@ -82,16 +72,14 @@ const updateProject = (req, res) => {
             manager: manager || projects[projectIndex].manager,
         };
 
-        res?.json(projects[projectIndex]);
+        res.json(projects[projectIndex]);
     } catch (error) {
         console.error("Error updating project:", error);
         res.status(500).json({ message: "Server error" });
     }
-}
 };
 
 const deleteProject = (req, res) => {
-    if(res){
     try {
         const { id } = req.params;
         const projectIndex = projects.findIndex((p) => p.id === parseInt(id));
@@ -101,12 +89,11 @@ const deleteProject = (req, res) => {
         }
 
         projects.splice(projectIndex, 1);
-        res?.json({ message: "Project deleted successfully" });
+        res.json({ message: "Project deleted successfully" });
     } catch (error) {
         console.error("Error deleting project:", error);
         res.status(500).json({ message: "Server error" });
     }
-}
 };
 
 module.exports = {
