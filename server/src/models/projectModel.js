@@ -9,16 +9,17 @@ module.exports = {
     createProject: (name, description, startDate, endDate, manager) => {
       const newProject = { 
         id: projects.length + 1, 
-        name, 
-        description, 
-        startDate, 
-        endDate, 
-        manager 
+        name: name,
+        description: description,
+        startDate: startDate,
+        endDate: endDate,
+        manager: manager
       };
       projects.push(newProject);
       return newProject;
     },
     updateProject: (id, updatedFields) => {
+        const fields = JSON.parse(updatedFields);
       const project = projects.find((p) => p.id === parseInt(id));
       if (project) {
         Object.keys(updatedFields).forEach((key) => {
