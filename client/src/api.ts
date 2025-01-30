@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://project-manager-0tsg.onrender.com/api";
 
 export const getProjects = () => axios.get(`${API_URL}/projects`);
 export const createProject = (data) => axios.post(`${API_URL}/projects`, data);

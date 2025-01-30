@@ -4,6 +4,7 @@ import ProjectList from "./pages/ProjectList";
 import ProjectCreate from "./pages/ProjectCreate";
 import ProjectEdit from "./pages/ProjectEdit";
 import ProjectDetail from "./pages/ProjectDetail";
+import { createProject } from "./api";  // Import API call
 
 const AppRouter = () => {
   return (
@@ -11,7 +12,7 @@ const AppRouter = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<ProjectList />} />
-        <Route path="/create" element={<ProjectCreate />} />
+        <Route path="/create" element={<ProjectCreate initialData={{}} onSubmit={createProject} />} />
         <Route path="/edit/:id" element={<ProjectEdit />} />
         <Route path="/detail/:id" element={<ProjectDetail />} />
       </Routes>
