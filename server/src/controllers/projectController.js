@@ -18,7 +18,7 @@ exports.createProject = (req, res) => {
 exports.updateProject = (req, res) => {
   const { name } = req.body;
   if (!name) return res.status(400).json({ error: "Project name is required" });
-  const updatedProject = projectModel.updateProject(req.params.id, name);
+  const updatedProject = projectModel.updateProject(req.params.id, req.body);
   updatedProject ? res.json(updatedProject) : res.status(404).json({ error: "Project not found" });
 };
 
