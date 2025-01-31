@@ -1,6 +1,6 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Link } from "@mui/material";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Link, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import FavoriteButton from "../FavouriteButton";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import EditButton from "../EditButton";
 
 interface ProjectTableProps {
@@ -47,9 +47,15 @@ const ProjectTable = ({ projects, favoriteProjects, toggleFavorite }: ProjectTab
               <TableCell>{project.startDate}</TableCell>
               <TableCell>{project.endDate}</TableCell>
               <TableCell>{project.manager}</TableCell>
+
+              {/* Favorite Icon */}
               <TableCell>
-                <FavoriteButton isFavorite={favoriteProjects.includes(project.id)} toggleFavorite={() => toggleFavorite(project.id)} />
+                <IconButton onClick={() => toggleFavorite(project.id)} color="primary">
+                  {favoriteProjects.includes(project.id) ? <Favorite color="error" /> : <FavoriteBorder />}
+                </IconButton>
               </TableCell>
+
+              {/* Edit Button */}
               <TableCell>
                 <EditButton projectId={project.id} />
               </TableCell>

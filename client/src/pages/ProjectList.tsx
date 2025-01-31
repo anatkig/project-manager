@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProjects } from "../api";
-import { Button, Typography } from "@mui/material";
-import FavoriteProjects from "../components/FavouriteProjects";
+import { Button, Typography, Box, List, ListItem } from "@mui/material";
 import ProjectTable from "../components/project-list-components/ProjectTable";
 
 const ProjectList = () => {
@@ -35,23 +34,34 @@ const ProjectList = () => {
   };
 
   return (
-    <div style={{ display: "flex", gap: "20px" }}>
-      {/* Favorite Projects Sidebar */}
-      <FavoriteProjects projects={projects} favoriteProjects={favoriteProjects} />
+    <Box display="flex">
+      {/* Left Sidebar - Favorite Projects */}
+      <Box width="20%" p={2} bgcolor="#F4F4F4">
+        <Typography variant="h6" gutterBottom>
+          Favorite Projects
+        </Typography>
+        <List>
+          {favoriteProjects.map((favId) => {
+            const project = projects.find((p) => p.id === favId);
+            return project ? <ListItem key={favId}>• {project.name}</ListItem> : null;
+          })}
+        </List>
+      </Box>
 
       {/* Main Project List */}
-      <div style={{ flex: 1 }}>
-        <Typography variant="h4">Project List Page</Typography>
-        <Button component={Link} to="/create" variant="contained" style={{ marginBottom: "10px" }}>
-          Create Project
-        </Button>
+      <Box flex={1} p={2}>
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Typography variant="h5">Project List Page</Typography>
+          <Button component={Link} to="/create" variant="contained" color="primary">
+            Create Project
+          </Button>
+        </Box>
 
         {/* Project Table */}
         <ProjectTable projects={projects} favoriteProjects={favoriteProjects} toggleFavorite={toggleFavorite} />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
 export default ProjectList;
-
