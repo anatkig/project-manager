@@ -6,7 +6,7 @@ let favorite_projects = [];
 
 module.exports = {
     getAllProjects: () => projects,
-    getProjectById: (id) => projects.find((p) => p.id === parseInt(id)),
+    getProjectById: (id) => projects.find((p) => parseInt(p.id) === parseInt(id)),
     createProject: (name, description, startDate, endDate, manager) => {
       const newProject = { 
         id: projects.length + 1, 
@@ -20,7 +20,7 @@ module.exports = {
       return newProject;
     },
     updateProject: (id, updatedFields) => {
-      const project = projects.find((p) => p.id === parseInt(id));
+      const project = projects.find((p) => parseInt(p.id) === parseInt(id));
       if (project) {
         Object.keys(updatedFields).forEach((key) => {
           if (project[key] !== undefined) {
@@ -31,18 +31,18 @@ module.exports = {
       return project;
     },
     deleteProject: (id) => {
-      projects = projects.filter((p) => p.id !== parseInt(id));
+      projects = projects.filter((p) => parseInt(p.id) !== parseInt(id));
       return projects;
     },
     getFavoriteProjects: () => favorite_projects,
     updateFavoriteProjects: (id) => {
-      const project = projects.find((p) => p.id === parseInt(id));
+      const project = projects.find((p) => parseInt(p.id) === parseInt(id));
       if (project) {
-        const index = favorite_projects.findIndex((p) => p.id === parseInt(id));
+        const index = favorite_projects.findIndex((p) => parseInt(p.id) === parseInt(id));
         if (index === -1) {
           favorite_projects.push(project);
         } else {
-          favorite_projects = favorite_projects.filter((p) => p.id !== parseInt(id));
+          favorite_projects = favorite_projects.filter((p) => parseInt(p.id) !== parseInt(id));
         }
       }
       return favorite_projects;

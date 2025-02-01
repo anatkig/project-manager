@@ -51,6 +51,7 @@ const ProjectEdit = () => {
 
   // Handle form submission and send data to the server
   const handleSubmit = (e: React.FormEvent) => {
+    console.log(formData);
     e.preventDefault();
     updateProject(formData.id, {
       ...formData,

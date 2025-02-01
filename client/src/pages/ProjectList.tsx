@@ -3,32 +3,24 @@ import { Box } from "@mui/material";
 import ProjectTable from "../components/project-list-components/ProjectTable";
 import { getProjects } from "../api";
 import Loader from "../components/Loader";
+import  { Project, ProjectListProps } from "../types";
 
-const ProjectList = ({favoriteProjects, setFavoriteProjects}) => {
-  const [projects, setProjects] = useState<
-  {
-    id: string;
-    name: string;
-    startDate: string;
-    endDate: string;
-    manager: string;
-  }[]
->([]);
+const ProjectList = ({favoriteProjects, setFavoriteProjects}:ProjectListProps) => {
+  const [projects, setProjects] = useState<Project[]>([]);
 // Load projects from API
 useEffect(() => {
   getProjects().then((res) => setProjects(res.data));
 }, []);
 
   // Toggle favorite project
-  const toggleFavorite = (id: string) => {
-    let updatedFavorites;
-    if (favoriteProjects.includes(id)) {
-      updatedFavorites = favoriteProjects.filter((favId) => favId !== id);
+  const toggleFavorite = (project) => {
+    const presentProject = favoriteProjects.find((proj) => proj.id === project.id);
+    if (presentProject) {
+      setFavoriteProjects(favoriteProjects.filter((proj) => proj.id !== project.id));
     } else {
-      updatedFavorites = [...favoriteProjects, id];
+      setFavoriteProjects([...favoriteProjects, project]);
     }
-    setFavoriteProjects(updatedFavorites);
-    localStorage.setItem("favoriteProjects", JSON.stringify(updatedFavorites));
+   
   };
 
   return (

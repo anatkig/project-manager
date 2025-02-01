@@ -25,11 +25,3 @@ exports.updateProject = (req, res) => {
 exports.deleteProject = (req, res) => {
   res.json(projectModel.deleteProject(req.params.id));
 };
-
-exports.getFavoriteProjects = (req, res) => {
-  res.json(projectModel.getFavoriteProjects());
-}
-
-exports.updateFavoriteProjects = (req, res) => {
-  res.json(projectModel.updateFavoriteProjects(req.params.id));
-}

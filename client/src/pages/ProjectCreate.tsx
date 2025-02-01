@@ -58,7 +58,6 @@ const ProjectCreate = ({ initialData, onSubmit }: ProjectCreateProps) => {
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "15px", maxWidth: "500px" }}>
             <Typography variant="h5">Create New Project</Typography>
 
-            <TextField label="Project ID" name="id" value={formData.id} onChange={handleChange} fullWidth required />
             <TextField label="Project Name" name="name" value={formData.name} onChange={handleChange} fullWidth required />
             <TextField
               label="Description"

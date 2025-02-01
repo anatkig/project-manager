@@ -6,8 +6,10 @@ import { Typography, Button, Paper } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
+import { ProjectDetailProps } from "../types";
+import Loader from "../components/Loader";
 
-const ProjectDetail = () => {
+const ProjectDetail = ({favoriteProjects}:ProjectDetailProps) => {
   const { id } = useParams(); // Get project ID from URL
   const navigate = useNavigate();
   const [project, setProject] = useState<{
@@ -18,7 +20,6 @@ const ProjectDetail = () => {
     endDate: string;
     manager: string;
   } | null>(null);
-  const [favoriteProjects, setFavoriteProjects] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
   // Load project details from API when ID changes
@@ -33,25 +34,6 @@ const ProjectDetail = () => {
     });
   }, [id]);
 
-  // Load favorite projects from localStorage
-  useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem("favoriteProjects") || "[]");
-    setFavoriteProjects(storedFavorites);
-  }, []);
-
-  // Toggle favorite project
-  const toggleFavorite = () => {
-    if (!project) return;
-    let updatedFavorites;
-    if (favoriteProjects.includes(project.id)) {
-      updatedFavorites = favoriteProjects.filter((favId) => favId !== project.id);
-    } else {
-      updatedFavorites = [...favoriteProjects, project.id];
-    }
-    setFavoriteProjects(updatedFavorites);
-    localStorage.setItem("favoriteProjects", JSON.stringify(updatedFavorites));
-  };
-
   return (
     <div style={{ display: "flex", gap: "20px" }}>
       {/* Main Content */}
@@ -59,14 +41,13 @@ const ProjectDetail = () => {
         <Typography variant="h4">Project Detail Page</Typography>
 
         {loading ? (
-          <Typography>Loading...</Typography>
+          <Loader />
         ) : project ? (
           <Paper style={{ padding: "20px", position: "relative", maxWidth: "600px" }}>
             {/* Favorite Button - Positioned at the top-right corner */}
             <div style={{ position: "absolute", top: "10px", right: "10px" }}>
               <FavoriteButton
-                isFavorite={favoriteProjects.includes(project.id)}
-                toggleFavorite={toggleFavorite}
+                isFavorite={favoriteProjects.some((proj) => parseInt(proj.id) === parseInt(project.id)) ? true : false}
               />
             </div>
 

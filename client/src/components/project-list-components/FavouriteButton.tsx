@@ -4,7 +4,7 @@ import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 interface FavoriteButtonProps {
   isFavorite: boolean;
-  toggleFavorite: () => void;
+  toggleFavorite?: () => void;
 }
 
 const FavoriteButton = ({ isFavorite, toggleFavorite }: FavoriteButtonProps) => {

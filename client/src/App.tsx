@@ -11,9 +11,10 @@ import ProjectDetail from "./pages/ProjectDetail";
 import { createProject } from "./api";
 import { Box } from "@mui/material";
 import { updateFavoriteProjects, getFavoriteProjects } from "./api";
+import { Project } from "./types";
 
 const App = () => {
-  const [favoriteProjects, setFavoriteProjects] = useState<{id:string, name:string}[]>([]);
+  const [favoriteProjects, setFavoriteProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     if(favoriteProjects.length === 0) {
@@ -48,7 +49,7 @@ const App = () => {
               />
               <Route
                 path="project-manager/detail/:id"
-                element={<ProjectDetail />}
+                element={<ProjectDetail favoriteProjects={favoriteProjects}/>}
               />
             </Routes>
           </Box>
