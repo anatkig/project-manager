@@ -11,10 +11,10 @@ const AppRouter = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<ProjectList />} />
-        <Route path="/create" element={<ProjectCreate initialData={{}} onSubmit={createProject} />} />
-        <Route path="/edit/:id" element={<ProjectEdit />} />
-        <Route path="/detail/:id" element={<ProjectDetail />} />
+        <Route path="project-manager/" element={<ProjectList />} />
+        <Route path="project-manager/create" element={<ProjectCreate initialData={{}} onSubmit={createProject} />} />
+        <Route path="project-manager/edit/:id" element={<ProjectEdit />} />
+        <Route path="project-manager/detail/:id" element={<ProjectDetail />} />
       </Routes>
     </Router>
   );

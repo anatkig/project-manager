@@ -46,7 +46,7 @@ const ProjectCreate = ({ initialData, onSubmit }: ProjectCreateProps) => {
       startDate: formData.startDate ? formData.startDate.format("YYYY-MM-DD") : null,
       endDate: formData.endDate ? formData.endDate.format("YYYY-MM-DD") : null,
     });
-    navigate("/");
+    navigate("/project-manager/");
   };
 
   return (

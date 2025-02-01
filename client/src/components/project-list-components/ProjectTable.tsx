@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Link, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
-import EditButton from "../EditButton";
+import EditButton from "./EditButton";
 
 interface ProjectTableProps {
   projects: { id: string; name: string; startDate: string; endDate: string; manager: string }[];
@@ -35,7 +35,7 @@ const ProjectTable = ({ projects, favoriteProjects, toggleFavorite }: ProjectTab
               <TableCell>
                 <Link
                   component="button"
-                  onClick={() => navigate(`/detail/${project.id}`)}
+                  onClick={() => navigate(`/project-manager/detail/${project.id}`)}
                   underline="hover"
                   color="primary"
                   style={{ cursor: "pointer" }}

@@ -52,7 +52,7 @@ const ProjectList = () => {
       <Box flex={1} p={2}>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Typography variant="h5">Project List Page</Typography>
-          <Button component={Link} to="/create" variant="contained" color="primary">
+          <Button component={Link} to="/project-manager/create" variant="contained" color="primary">
             Create Project
           </Button>
         </Box>

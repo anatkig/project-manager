@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProjects } from "../api";
-import FavoriteButton from "../components/FavouriteButton";
+import FavoriteButton from "../components/project-list-components/FavouriteButton";
 import FavoriteProjects from "../components/FavouriteProjects";
 import { Typography, Button, Paper } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -88,10 +88,10 @@ const ProjectDetail = () => {
 
             {/* Buttons - Positioned at the bottom */}
             <div style={{ display: "flex", justifyContent: "center", gap: "10px", marginTop: "20px" }}>
-              <Button variant="contained" color="primary" onClick={() => navigate("/")}>
+              <Button variant="contained" color="primary" onClick={() => navigate("/project-manager/")}>
                 Back
               </Button>
-              <Button variant="contained" color="secondary" onClick={() => navigate(`/edit/${project.id}`)}>
+              <Button variant="contained" color="secondary" onClick={() => navigate(`/project-manager/edit/${project.id}`)}>
                 Edit
               </Button>
             </div>

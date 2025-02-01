@@ -9,10 +9,10 @@ const Navbar = () => {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Project Manager
         </Typography>
-        <Button color="inherit" component={Link} to="/">
+        <Button color="inherit" component={Link} to="/project-manager/">
           Projects
         </Button>
-        <Button color="inherit" component={Link} to="/create">
+        <Button color="inherit" component={Link} to="/project-manager/create">
           Create Project
         </Button>
       </Toolbar>

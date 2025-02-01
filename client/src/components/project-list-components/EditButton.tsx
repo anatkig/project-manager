@@ -8,7 +8,7 @@ interface EditButtonProps {
 
 const EditButton = ({ projectId }: EditButtonProps) => {
   return (
-    <IconButton component={Link} to={`/edit/${projectId}`} color="primary">
+    <IconButton component={Link} to={`/project-manager/edit/${projectId}`} color="primary">
       <EditIcon />
     </IconButton>
   );

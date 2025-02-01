@@ -57,7 +57,7 @@ const ProjectEdit = () => {
       ...formData,
       startDate: formData.startDate ? formData.startDate.format("YYYY-MM-DD") : null,
       endDate: formData.endDate ? formData.endDate.format("YYYY-MM-DD") : null,
-    }).then(() => navigate("/")); // Redirect to project list after update
+    }).then(() => navigate("/project-manager/")); // Redirect to project list after update
   };
 
   return (
@@ -106,7 +106,7 @@ const ProjectEdit = () => {
                 </Button>
 
                 {/* Back Button */}
-                <Button variant="text" color="secondary" onClick={() => navigate("/")}>
+                <Button variant="text" color="secondary" onClick={() => navigate("/project-manager/")}>
                   Go Back to Project List
                 </Button>
               </form>
