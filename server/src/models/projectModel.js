@@ -1,5 +1,3 @@
-const { updateFavouriteProjects } = require("../controllers/projectController");
-
 let projects = [
     { id: 1, name: "Project A", description: "This is project A", startDate: "2021-01-01", endDate: "2021-12-31", manager: "John Doe" },
     { id: 2, name: "Project B", description: "This is project B", startDate: "2021-01-03", endDate: "2021-12-31", manager: "John Doewn" },
