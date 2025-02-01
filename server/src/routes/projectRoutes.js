@@ -8,6 +8,6 @@ router.post("/", projectController.createProject);
 router.put("/:id", projectController.updateProject);
 router.delete("/:id", projectController.deleteProject);
 router.get("/favourites", projectController.getFavouriteProjects);
-router.post("/favourites/:id", projectController.addFavouriteProject);
+router.post("/favourites/:id", projectController.updateFavoriteProjects);
 
 module.exports = router;

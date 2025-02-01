@@ -37,7 +37,7 @@ module.exports = {
       return projects;
     },
     getFavouriteProjects: () => favoriteProjects,
-    updateFavouriteProjects: (id) => {
+    updateFavoriteProjects: (id) => {
       const project = projects.find((p) => p.id === parseInt(id));
       if (project) {
         const index = favoriteProjects.findIndex((p) => p.id === parseInt(id));
