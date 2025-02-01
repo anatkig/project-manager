@@ -5,5 +5,5 @@ exports.getFavoriteProjects = (req, res) => {
 }
 
 exports.updateFavoriteProjects = (req, res) => {
-  res.json(favoriteProjectsModel.updateFavoriteProjects(req.params.id));
+  res.json(favoriteProjectsModel.updateFavoriteProjects());
 }
