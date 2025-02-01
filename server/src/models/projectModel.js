@@ -34,7 +34,7 @@ module.exports = {
       projects = projects.filter((p) => p.id !== parseInt(id));
       return projects;
     },
-    getFavouriteProjects: () => favorite_projects,
+    getFavoriteProjects: () => favorite_projects,
     updateFavoriteProjects: (id) => {
       const project = projects.find((p) => p.id === parseInt(id));
       if (project) {

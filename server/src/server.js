@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const projectRoutes = require("./routes/projectRoutes");
+const favoriteProjectsRoutes = require("./routes/favoriteProjectsRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -11,6 +12,7 @@ app.use(express.json()); // This is REQUIRED to handle JSON requests
 
 // Routes
 app.use("/api/projects", projectRoutes);
+app.use("/api/favorite_projects", favoriteProjectsRoutes);
 
 // Default route
 app.get("/", (req, res) => {
