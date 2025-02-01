@@ -22,7 +22,7 @@ const App = () => {
     return () =>{
       updateFavoriteProjects(favoriteProjects);
     }
-  }, [favoriteProjects]);
+  }, []);
 
   return (
     <div className="App">
