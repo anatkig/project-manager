@@ -2,7 +2,7 @@ let projects = [
     { id: 1, name: "Project A", description: "This is project A", startDate: "2021-01-01", endDate: "2021-12-31", manager: "John Doe" },
     { id: 2, name: "Project B", description: "This is project B", startDate: "2021-01-03", endDate: "2021-12-31", manager: "John Doewn" },
 ];
-let favoriteProjects = [];
+let favorite_projects = [];
 
 module.exports = {
     getAllProjects: () => projects,
@@ -34,17 +34,17 @@ module.exports = {
       projects = projects.filter((p) => p.id !== parseInt(id));
       return projects;
     },
-    getFavouriteProjects: () => favoriteProjects,
+    getFavouriteProjects: () => favorite_projects,
     updateFavoriteProjects: (id) => {
       const project = projects.find((p) => p.id === parseInt(id));
       if (project) {
-        const index = favoriteProjects.findIndex((p) => p.id === parseInt(id));
+        const index = favorite_projects.findIndex((p) => p.id === parseInt(id));
         if (index === -1) {
-          favoriteProjects.push(project);
+          favorite_projects.push(project);
         } else {
-          favoriteProjects = favoriteProjects.filter((p) => p.id !== parseInt(id));
+          favorite_projects = favorite_projects.filter((p) => p.id !== parseInt(id));
         }
       }
-      return favoriteProjects;
+      return favorite_projects;
     }
   };
