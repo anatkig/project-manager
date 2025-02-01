@@ -7,7 +7,7 @@ router.get("/:id", projectController.getProjectById);
 router.post("/", projectController.createProject);
 router.put("/:id", projectController.updateProject);
 router.delete("/:id", projectController.deleteProject);
-router.get("/favourites", projectController.getFavouriteProjects);
-router.post("/favourites/:id", projectController.updateFavoriteProjects);
+router.get("/favorite_projects", projectController.getFavouriteProjects);
+router.post("/favorite_projects/:id", projectController.updateFavoriteProjects);
 
 module.exports = router;
