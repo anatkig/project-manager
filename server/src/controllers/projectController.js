@@ -12,7 +12,7 @@ exports.getProjectById = (req, res) => {
 exports.createProject = (req, res) => {
   const { name } = req.body;
   if (!name) return res.status(400).json({ error: "Project name is required" });
-  res.json(projectModel.createProject(name));
+  res.json(projectModel.createProject({ ...req.body }));
 };
 
 exports.updateProject = (req, res) => {
