@@ -6,3 +6,6 @@ export const getProjects = () => axios.get(`${API_URL}/projects`);
 export const createProject = (data) => axios.post(`${API_URL}/projects`, data);
 export const updateProject = (id, data) => axios.put(`${API_URL}/projects/${id}`, data);
 export const deleteProject = (id) => axios.delete(`${API_URL}/projects/${id}`);
+export const getFavoriteProjects = () => axios.get(`${API_URL}/favorite-projects`);
+export const updateFavoriteProjects = (data) => axios.put(`${API_URL}/favorite-projects`, data);
+

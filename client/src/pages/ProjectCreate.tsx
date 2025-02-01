@@ -4,7 +4,6 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
-import FavoriteProjects from "../components/FavouriteProjects";
 import { useState } from "react";
 
 interface ProjectCreateProps {
@@ -51,9 +50,6 @@ const ProjectCreate = ({ initialData, onSubmit }: ProjectCreateProps) => {
 
   return (
     <div style={{ display: "flex", gap: "20px" }}>
-      {/* Favorite Projects Sidebar */}
-      <FavoriteProjects projects={[]} favoriteProjects={[]} />
-
       {/* Main Form */}
       <div style={{ flex: 1 }}>
         <Typography variant="h4">Project Create Page</Typography>

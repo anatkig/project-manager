@@ -2,6 +2,7 @@ let projects = [
     { id: 1, name: "Project A", description: "This is project A", startDate: "2021-01-01", endDate: "2021-12-31", manager: "John Doe" },
     { id: 2, name: "Project B", description: "This is project B", startDate: "2021-01-03", endDate: "2021-12-31", manager: "John Doewn" },
 ];
+let favouriteProjects = [];
 
 module.exports = {
     getAllProjects: () => projects,
@@ -32,5 +33,13 @@ module.exports = {
     deleteProject: (id) => {
       projects = projects.filter((p) => p.id !== parseInt(id));
       return projects;
+    },
+    getFavouriteProjects: () => favouriteProjects,
+    addFavouriteProject: (id) => {
+      const project = projects.find((p) => p.id === parseInt(id));
+      if (project) {
+        favouriteProjects.push(project);
+      }
+      return project;
     },
   };

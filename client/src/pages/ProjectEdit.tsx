@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProjects, updateProject } from "../api";
-import FavoriteProjects from "../components/FavouriteProjects";
 import { Typography, TextField, Button, Paper } from "@mui/material";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -62,9 +61,6 @@ const ProjectEdit = () => {
 
   return (
     <div style={{ display: "flex", gap: "20px" }}>
-      {/* Favorite Projects Sidebar */}
-      <FavoriteProjects projects={[]} favoriteProjects={[]} />
-
       {/* Main Content */}
       <div style={{ flex: 1 }}>
         <Typography variant="h4">Project Edit Page</Typography>

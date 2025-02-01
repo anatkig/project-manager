@@ -1,19 +1,24 @@
-import { List, ListItem, Typography } from "@mui/material";
+import { List, ListItemButton, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 interface FavoriteProjectsProps {
-  projects: { id: string; name: string }[];
-  favoriteProjects: string[];
+  favoriteProjects: { id: string; name: string }[];
 }
 
-const FavoriteProjects = ({ projects, favoriteProjects }: FavoriteProjectsProps) => {
+const FavoriteProjects = ({favoriteProjects }: FavoriteProjectsProps) => {
+const navigate = useNavigate();
   return (
     <div style={{ width: "250px", borderRight: "1px solid #ccc", padding: "10px" }}>
       <Typography variant="h6">Favorite Projects</Typography>
       <List>
-        {projects
-          .filter((project) => favoriteProjects.includes(project.id))
-          .map((project) => (
-            <ListItem key={project.id}>{project.name}</ListItem>
+        {favoriteProjects.map((project) => (
+                  <ListItemButton
+                  key={project.id}
+                  onClick={() => navigate(`/project-manager/detail/${project.id}`)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {project.name}
+                </ListItemButton>
           ))}
       </List>
     </div>
